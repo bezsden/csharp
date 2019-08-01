@@ -22,20 +22,11 @@ namespace Selenium.Tests
             driver = new ChromeDriver();
         }
 
-        //[Test]
-        //public void TestApp()
-        //{
-        //    IWebDriver driver = new ChromeDriver();
-        //    driver.Url = "http://google.com";
-        //    driver.Close();
-        //}
-
         [SetUp]
         public void Initialize()
         {
             driver.Url = "http://google.com";
             driver.Manage().Window.Maximize();
-
         }
 
         [Test]
