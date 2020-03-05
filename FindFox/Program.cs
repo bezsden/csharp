@@ -6,7 +6,7 @@ namespace FindFox
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
