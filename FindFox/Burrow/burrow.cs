@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FindFox.Burrow
+namespace FindFox
 {
     public class Burrow
     {
