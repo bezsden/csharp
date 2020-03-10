@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FindFox
 {
@@ -8,14 +7,16 @@ namespace FindFox
     {
         public string FoxName { get; set; } = "RedFox";
 
-        public Burrow GetIntoBurrow(Dictionary<int, Burrow> burrows)
+        public Burrow currentBurrow { get; set; }
+
+        public void GetIntoBurrow(Dictionary<int, Burrow> burrows)
         {
-            int burrowId = new Random().Next(1,5);
+            int burrowId = new Random().Next(1, 5);
             burrows.TryGetValue(burrowId, out Burrow burrowName);
-            return burrowName;
+            currentBurrow = burrowName;
         }
 
-        public Burrow ChangeBurrow(Dictionary<int, Burrow> burrows, Burrow currentBurrow)
+        public void ChangeBurrow(Dictionary<int, Burrow> burrows)
         {
             int direction = new Random().Next(0, 1);
 
@@ -30,17 +31,29 @@ namespace FindFox
                 }
             }
 
-            if (direction == 1)
+            if (direction == 1 && burrows.ContainsKey(key + 1))
             {
-                burrows.TryGetValue(key + 1, out Burrow burrowName);
-                return burrowName;
+                ChangeBurrow(key + 1);
             }
-            else
+            else if (direction == 1 && !burrows.ContainsKey(key + 1))
             {
-                burrows.TryGetValue(key - 1, out Burrow burrowName);
-                return burrowName;
+                ChangeBurrow(key - 1);
             }
-                       
+            else if (direction == 0 && burrows.ContainsKey(key - 1))
+            {
+                ChangeBurrow(key - 1);
+            }
+            else if (direction == 0 && !burrows.ContainsKey(key - 1))
+            {
+                ChangeBurrow(key + 1);
+            }
+            else throw new NotImplementedException();
+
+            void ChangeBurrow(int key)
+            {
+                burrows.TryGetValue(key, out Burrow burrowName);
+                currentBurrow = burrowName;
+            }
         }
     }
 }

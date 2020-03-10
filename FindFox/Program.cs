@@ -17,7 +17,7 @@ namespace FindFox
             burrows.Add(5, new Burrow("five"));
 
             Fox redFox = new Fox();
-            Burrow burrow = redFox.GetIntoBurrow(burrows);
+            redFox.GetIntoBurrow(burrows);
 
             int iteration = 0;
 

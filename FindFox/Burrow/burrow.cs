@@ -11,5 +11,10 @@ namespace FindFox
         {
             BurrowName = name;
         }
+
+        public Burrow()
+        {
+            new Burrow("This is The Fox Burrow");
+        }
     }
 }
