@@ -8,17 +8,18 @@ namespace FindFox
     {
         static void Main(string[] args)
         {
-            List<Burrow> burrows = new List<Burrow>();
-            burrows.Add(new Burrow { BurrowName = "Burrow1" });
-            burrows.Add(new Burrow { BurrowName = "Burrow2" });
-            burrows.Add(new Burrow { BurrowName = "Burrow3" });
-            burrows.Add(new Burrow { BurrowName = "Burrow4" });
-            burrows.Add(new Burrow { BurrowName = "Burrow5" });
+            Dictionary<int, Burrow> burrows = new Dictionary<int, Burrow>();
+
+            burrows.Add(1,new Burrow("one"));
+            burrows.Add(2, new Burrow("two"));
+            burrows.Add(3, new Burrow("three"));
+            burrows.Add(4, new Burrow("four"));
+            burrows.Add(5, new Burrow("five"));
 
             Fox redFox = new Fox();
-            redFox.FoxName = "RedFox";
+            Burrow burrow = redFox.GetIntoBurrow(burrows);
 
-            int turn = 0 ;
+            int iteration = 0;
 
 
         }

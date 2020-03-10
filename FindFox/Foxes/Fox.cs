@@ -6,13 +6,41 @@ namespace FindFox
 {
     public class Fox
     {
-        private string direction = "left";
-        public string FoxName { get; set;  }
+        public string FoxName { get; set; } = "RedFox";
 
-        public void Move(int turn)
-        { 
+        public Burrow GetIntoBurrow(Dictionary<int, Burrow> burrows)
+        {
+            int burrowId = new Random().Next(1,5);
+            burrows.TryGetValue(burrowId, out Burrow burrowName);
+            return burrowName;
+        }
 
+        public Burrow ChangeBurrow(Dictionary<int, Burrow> burrows, Burrow currentBurrow)
+        {
+            int direction = new Random().Next(0, 1);
 
+            int key = 0;
+
+            foreach (KeyValuePair<int, Burrow> item in burrows)
+            {
+                if (EqualityComparer<Burrow>.Default.Equals(item.Value, currentBurrow))
+                {
+                    key = item.Key;
+                    break;
+                }
+            }
+
+            if (direction == 1)
+            {
+                burrows.TryGetValue(key + 1, out Burrow burrowName);
+                return burrowName;
+            }
+            else
+            {
+                burrows.TryGetValue(key - 1, out Burrow burrowName);
+                return burrowName;
+            }
+                       
         }
     }
 }
