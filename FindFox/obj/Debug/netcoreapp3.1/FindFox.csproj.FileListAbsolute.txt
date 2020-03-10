@@ -4,7 +4,6 @@ D:\c#_playground\FOX\csharp\FindFox\bin\Debug\netcoreapp3.1\FindFox.runtimeconfi
 D:\c#_playground\FOX\csharp\FindFox\bin\Debug\netcoreapp3.1\FindFox.runtimeconfig.dev.json
 D:\c#_playground\FOX\csharp\FindFox\bin\Debug\netcoreapp3.1\FindFox.dll
 D:\c#_playground\FOX\csharp\FindFox\bin\Debug\netcoreapp3.1\FindFox.pdb
-D:\c#_playground\FOX\csharp\FindFox\obj\Debug\netcoreapp3.1\FindFox.csprojAssemblyReference.cache
 D:\c#_playground\FOX\csharp\FindFox\obj\Debug\netcoreapp3.1\FindFox.AssemblyInfoInputs.cache
 D:\c#_playground\FOX\csharp\FindFox\obj\Debug\netcoreapp3.1\FindFox.AssemblyInfo.cs
 D:\c#_playground\FOX\csharp\FindFox\obj\Debug\netcoreapp3.1\FindFox.dll

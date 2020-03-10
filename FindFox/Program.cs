@@ -19,8 +19,16 @@ namespace FindFox
             Fox redFox = new Fox();
             redFox.GetIntoBurrow(burrows);
 
-            int iteration = 0;
+            SearchTheFox Atu = new SearchTheFox();
 
+            while (!Atu.IsFoxFound)
+            {
+                Atu.Search(redFox, burrows);
+                redFox.ChangeBurrow(burrows);
+            }
+
+            Console.WriteLine("Fox found foxburrow is {0}, Looked burrow is {1}, iterations {2}", redFox.currentBurrow.ToString(), Atu.resultBurrow.ToString(), Atu.IterationCounter);
+            Console.ReadLine();
 
         }
     }
