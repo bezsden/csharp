@@ -7,24 +7,22 @@ namespace FindFox
     {
         public string FoxName { get; set; } = "RedFox";
 
-        public Burrow currentBurrow { get; set; }
-
-        public void GetIntoBurrow(Dictionary<int, Burrow> burrows)
+        public void GetIntoBurrow(Dictionary<int, bool> burrows)
         {
             int burrowId = new Random().Next(1, 5);
-            burrows.TryGetValue(burrowId, out Burrow burrowName);
-            currentBurrow = burrowName;
+            burrows[burrowId] = true;
+
         }
 
-        public void ChangeBurrow(Dictionary<int, Burrow> burrows)
+        public void ChangeBurrow(Dictionary<int, bool> burrows)
         {
             int direction = new Random().Next(0, 1);
 
             int key = 0;
 
-            foreach (KeyValuePair<int, Burrow> item in burrows)
+            foreach (KeyValuePair<int, bool> item in burrows)
             {
-                if (EqualityComparer<Burrow>.Default.Equals(item.Value, currentBurrow))
+                if (item.Value==true)
                 {
                     key = item.Key;
                     break;
@@ -51,8 +49,8 @@ namespace FindFox
 
             void ChangeBurrow(int key)
             {
-                burrows.TryGetValue(key, out Burrow burrowName);
-                currentBurrow = burrowName;
+                burrows[key] = true;
+
             }
         }
     }
