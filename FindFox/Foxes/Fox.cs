@@ -16,13 +16,13 @@ namespace FindFox
 
         public void ChangeBurrow(Dictionary<int, bool> burrows)
         {
-            int direction = new Random().Next(0, 1);
+            int direction = new Random().Next(0, 2);
 
             int key = 0;
 
             foreach (KeyValuePair<int, bool> item in burrows)
             {
-                if (item.Value==true)
+                if (item.Value == true)
                 {
                     key = item.Key;
                     break;
@@ -47,10 +47,10 @@ namespace FindFox
             }
             else throw new NotImplementedException();
 
-            void ChangeBurrow(int key)
+            void ChangeBurrow(int changeKey)
             {
-                burrows[key] = true;
-
+                burrows[key] = false;
+                burrows[changeKey] = true;
             }
         }
     }

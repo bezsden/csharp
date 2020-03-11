@@ -21,24 +21,22 @@ namespace FindFox
             redFox.GetIntoBurrow(burrows);
 
             Search Atu = new Search();
+            Search Atu2 = new Search();
 
-            while (!Atu.IsFoxFound)
+            while (true)
             {
-                Atu.Search1(burrows);
-                Atu.Search2(burrows);
-                Console.WriteLine("{0} Fox in burrow {1} marker {2}, iterations {3}", Atu.Winer, Atu.resultBurrow, burrows[Atu.resultBurrow], Atu.IterationCounter);
-                Console.WriteLine("{0} Fox in burrow {1} marker {2}, iterations {3}", Atu.Winer, Atu.resultBurrow2, burrows[Atu.resultBurrow2], Atu.IterationCounter2);
-                Console.ReadLine();
-                if (Atu.IsFoxFound == true && Atu.IsFoxFound2 == true) break;
+                if (!Atu.FoxState) Atu.Search1(burrows);
+                if (!Atu2.FoxState) Atu2.Search2(burrows);
+                if (Atu2.FoxState == true & Atu.FoxState == true) break;
                 redFox.ChangeBurrow(burrows);
-                
-                
             }
 
-           
-
+            Console.WriteLine("{0} Fox in burrow {1} marker {2}, iterations {3}", Atu.Winer, Atu.resultBurrow, Atu.resultValue, Atu.IterationCounter);
+            Console.WriteLine("{0} Fox in burrow {1} marker {2}, iterations {3}", Atu2.Winer, Atu2.resultBurrow, Atu2.resultValue, Atu2.IterationCounter);
 
             Console.ReadLine();
+
+
 
         }
     }
