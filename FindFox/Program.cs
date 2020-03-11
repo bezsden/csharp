@@ -10,7 +10,7 @@ namespace FindFox
         {
             Dictionary<int, Burrow> burrows = new Dictionary<int, Burrow>();
 
-            burrows.Add(1,new Burrow("one"));
+            burrows.Add(1, new Burrow("one"));
             burrows.Add(2, new Burrow("two"));
             burrows.Add(3, new Burrow("three"));
             burrows.Add(4, new Burrow("four"));
@@ -24,10 +24,11 @@ namespace FindFox
             while (!Atu.IsFoxFound)
             {
                 Atu.Search(redFox, burrows);
+                if (Atu.IsFoxFound == true) break;
                 redFox.ChangeBurrow(burrows);
             }
 
-            Console.WriteLine("Fox found foxburrow is {0}, Looked burrow is {1}, iterations {2}", redFox.currentBurrow.ToString(), Atu.resultBurrow.ToString(), Atu.IterationCounter);
+            Console.WriteLine("Fox found foxburrow is {0}, Looked burrow is {1}, iterations {2}", redFox.currentBurrow.BurrowName, Atu.resultBurrow.BurrowName, Atu.IterationCounter);
             Console.ReadLine();
 
         }
