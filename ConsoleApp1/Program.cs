@@ -1,52 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BubleSort
 {
-    class Program
+    public class Program
     {
-        static int[] intArray = new int[] { 22, 0, -1, -2, -3, 0, 3, 5, 7, 9, 10, 22, -55, -66 };
-        static int transferVal;
-
-        static void Main(string[] args)
+        
+        private static readonly int[] Walls = new[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+        public static void Main()
         {
-            int k = 0;
-            while (k < intArray.Length)
-            {
-                k++;
-                BubleSort();
-            }
-            Console.ReadLine();
+            var result = GetLargestPoolArea(Walls);
+            Console.WriteLine("The largest pool area is: " + result);
         }
-        private static void BubleSort()
+        private static int GetLargestPoolArea(int[] walls)
         {
-            for (int i = 0; i < intArray.Length; i++)
+            List<int> allSquares = new List<int>();
+            int result;
+            for (int i = 0; i < Walls.Length; i++)
             {
-                if (i + 2 > intArray.Length)
+                for (int g = i+1; g < Walls.Length; g++)
                 {
-                }
-                else
-                {
-                    if (intArray[i] <= intArray[i + 1])
+                    if (Walls[i].CompareTo(Walls[g]) <= 0)
                     {
+                        result = Walls[i] * (g-i);
                     }
                     else
                     {
-                        transferVal = intArray[i];
-                        intArray[i] = intArray[i + 1];
-                        intArray[i + 1] = transferVal;
+                        result = Walls[g] * (g-i);
                     }
+                    allSquares.Add(result);
+                    Console.Write (" " + result);
                 }
-                PrintaArray(intArray);
+                Console.WriteLine();
             }
-        }
-
-        static void PrintaArray(int[] arr)
-        {
-            for (int i = 0; i < intArray.Length; i++)
-            {
-                Console.Write(" " + intArray[i]);
-            }
-            Console.WriteLine();
+            allSquares.Sort();
+            allSquares.Reverse();
+            return allSquares[0];
         }
     }
 }
